@@ -131,7 +131,7 @@ node api.js "your prompt here" --aspect 16:9 --n 3
 3. 建立新的 API Key 並複製
 
 > 📍 **截圖指引**：按下 `Cmd+Shift+4`（或 `Cmd+Shift+3`）截圖，懶人包如下：
-> ![Token Plan Key 位置截圖](../references/screenshots/api-key-location.jpg)
+> ![Token Plan Key 位置截圖](references/screenshots/api-key-location.jpg)
 
 ### 2. 設定環境變數
 

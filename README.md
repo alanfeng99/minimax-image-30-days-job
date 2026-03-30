@@ -17,11 +17,11 @@
 
 ```bash
 # 1. Clone into your OpenClaw skills directory
-git clone https://github.com/alanfeng99/minimax-image-30-days-job.git ~/.openclaw/skills/minimax-image-gen
+git clone https://github.com/alanfeng99/minimax-image-30-days-job.git \
+  ~/.openclaw/skills/minimax-image-gen
 
 # 2. Install dependencies
-cd ~/.openclaw/skills/minimax-image-gen/scripts
-npm install
+cd ~/.openclaw/skills/minimax-image-gen/scripts && npm install
 
 # 3. Set your MiniMax API Key
 export MINIMAX_API_KEY="your_Token_Plan_Key"
@@ -40,22 +40,22 @@ Get your **Token Plan API Key** at: [platform.minimax.io/user-center/basic-infor
 ## Project Structure
 
 ```
-minimax-image-gen/
-├── SKILL.md                        ← Main skill documentation
-├── theme-generator/SKILL.md        ← 30-theme generator guide
-├── prompt-scheduler/SKILL.md       ← Daily scheduler + review guide
+├── README.md
+├── SKILL.md                         ← Main skill documentation
+├── theme-generator/SKILL.md         ← 30-theme generator guide
+├── prompt-scheduler/SKILL.md        ← Daily scheduler + review guide
 ├── scripts/
 │   ├── api.js                     ← MiniMax Image-01 API wrapper
 │   ├── theme-generator.js          ← Generates 30 themes
 │   ├── senior-reviewer.js          ← Senior Prompt Engineer reviewer
 │   ├── scheduler.js               ← Daily prompt scheduler
-│   └── *.plist                    ← macOS launchd schedule
+│   └── com.ai.pro16.*.plist       ← macOS launchd schedule
 └── references/
-    ├── themes.json                ← 30 themes (auto-generated)
-    ├── screenshots/               ← Setup screenshots
+    ├── themes.json                 ← 30 themes (auto-generated)
+    ├── screenshots/                ← Setup screenshots
     └── prompts/
-        ├── approved.json          ← Cumulative approved prompts
-        ├── rejected.json          ← Rejected prompts with reasons
+        ├── approved.json           ← Cumulative approved prompts
+        ├── rejected.json           ← Rejected prompts with reasons
         └── daily/                 ← Daily run reports
 ```
 
@@ -106,7 +106,7 @@ crontab -e
 - **Max prompt**: 1500 characters
 - **Max per request**: 9 images
 
-See `minimax-image-gen/scripts/api.js` for the Node.js wrapper.
+See `scripts/api.js` for the Node.js wrapper.
 
 ---
 
