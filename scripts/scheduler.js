@@ -65,13 +65,13 @@ const LLM_SYSTEM_PROMPT = `You are a Senior Prompt Engineer. Enhance seed prompt
 
 const axios = require('axios');
 
-async function enhanceWithLLM({ seedPrompt, theme, apiKey }) {
+async function enhanceWithLLM({ seedPrompt, theme, apiKey, model = LLM_MODEL }) {
   const userMessage = `Theme: ${theme || 'General'}\nSeed: "${seedPrompt}"\n\nEnhance into a vivid, detailed image prompt. Return ONLY the result.`;
 
   const response = await axios.post(
     TEXT_API,
     {
-      model: LLM_MODEL,
+      model,
       messages: [
         { role: 'system', name: 'Senior Prompt Engineer', content: LLM_SYSTEM_PROMPT },
         { role: 'user', name: 'User', content: userMessage },
@@ -165,28 +165,42 @@ function generatePromptVariant(theme, seed) {
 }
 
 /**
- * 生成 N 個隨機 seed prompts
+ * 生成 N 個隨機 seed prompts，均匀分配給各主題
  */
 function generateDailySeeds(themes, count = 50) {
   const prompts = [];
   const usedSeeds = new Set();
+
+  // 計算加權配額
   const weights = themes.map(t =>
     t.tags.some(tag => ['vintage', 'surreal', 'sci-fi', 'steampunk'].includes(tag)) ? 1.5 : 1
   );
+  const totalWeight = weights.reduce((a, b) => a + b, 0);
 
-  const baseCountPerTheme = Math.floor(count / themes.length);
-  let remaining = count;
+  // 分配：每主題基礎配額 + 剩餘隨機分發
+  const baseQuota = themes.map((_, i) => Math.floor((weights[i] / totalWeight) * count));
+  let remainder = count - baseQuota.reduce((a, b) => a + b, 0);
+
+  // 隨機分配多餘名額（避免某主題總是被眷顧）
+  const pool = [];
+  themes.forEach((_, i) => {
+    for (let k = 0; k < baseQuota[i]; k++) pool.push(i);
+  });
+  while (remainder > 0) {
+    pool.push(themes[Math.floor(Math.random() * themes.length)].id - 1);
+    remainder--;
+  }
+
+  const quota = new Array(themes.length).fill(0);
+  for (const i of pool) quota[i]++;
 
   for (let i = 0; i < themes.length; i++) {
     const theme = themes[i];
-    const myCount = (i === themes.length - 1) ? remaining : Math.max(1, Math.round(baseCountPerTheme * weights[i]));
-
-    for (let j = 0; j < myCount && prompts.length < count; j++) {
+    for (let j = 0; j < quota[i]; j++) {
       let seed;
       do { seed = Math.floor(Math.random() * 100000); } while (usedSeeds.has(seed));
       usedSeeds.add(seed);
       prompts.push(generatePromptVariant(theme, seed));
-      remaining--;
     }
   }
 
@@ -200,13 +214,13 @@ function generateDailySeeds(themes, count = 50) {
 }
 
 // ============ Main Scheduler ============
-async function runDailyScheduler({ date, dryRun = false, count = CONFIG.daily_prompt_count, useLLM = true }) {
+async function runDailyScheduler({ date, dryRun = false, count = CONFIG.daily_prompt_count, useLLM = true, model = LLM_MODEL }) {
   const runDate = date || new Date().toISOString().split('T')[0];
   const hasApiKey = checkApiKey();
   const apiKey = getApiKey();
 
   console.log(`\n🚀 Daily Prompt Scheduler — ${runDate}`);
-  console.log(`   Mode: ${dryRun ? 'DRY RUN' : 'LIVE'} | LLM: ${useLLM && hasApiKey ? '✅ ON (MiniMax-M2.7)' : '❌ OFF (rule-based only)'}`);
+  console.log(`   Mode: ${dryRun ? 'DRY RUN' : 'LIVE'} | LLM: ${useLLM && hasApiKey ? `✅ ON (${model})` : '❌ OFF (rule-based only)'}`);
   console.log(`   Config: ${count} prompts, threshold ${CONFIG.review_threshold}\n`);
 
   if (!hasApiKey) {
@@ -250,7 +264,7 @@ async function runDailyScheduler({ date, dryRun = false, count = CONFIG.daily_pr
 
   // Stage 2: LLM Enhancement (parallel)
   if (useLLM && hasApiKey) {
-    console.log(`\n🤖 Stage 2: LLM Enhancement (MiniMax-M2.7, ${CONFIG.llm_concurrency} parallel)...`);
+    console.log(`\n🤖 Stage 2: LLM Enhancement (${model}, ${CONFIG.llm_concurrency} parallel)...`);
 
     const results = await asyncPool(CONFIG.llm_concurrency, seeds, async (seed, i) => {
       const progress = `[${i + 1}/${seeds.length}]`;
@@ -259,6 +273,7 @@ async function runDailyScheduler({ date, dryRun = false, count = CONFIG.daily_pr
           seedPrompt: seed.seed_content,
           theme: seed.theme,
           apiKey,
+          model,
         });
         if (enhanced && enhanced.length > 10) {
           process.stdout.write(`  ${progress} ✅\n`);
@@ -428,13 +443,16 @@ if (require.main === module) {
   const args = process.argv.slice(2);
   const dateArg = args.find(a => a.startsWith('--date='));
   const dryRun = args.includes('--dry-run');
-  const countArg = args.find(a => a.startsWith('--count='));
+  const countArg = args.find(a => a.startsWith('--count=')) || args.find(a => a === '--count');
   const noLLM = args.includes('--no-llm');
+  const modelArg = args.find(a => a.startsWith('--model='));
 
   const date = dateArg ? dateArg.split('=')[1] : new Date().toISOString().split('T')[0];
-  const count = countArg ? parseInt(countArg.split('=')[1], 10) : CONFIG.daily_prompt_count;
+  const countRaw = countArg ? (countArg.includes('=') ? countArg.split('=')[1] : args[args.indexOf(countArg) + 1]) : CONFIG.daily_prompt_count;
+  const count = parseInt(countRaw, 10);
+  const model = modelArg ? modelArg.split('=')[1] : LLM_MODEL;
 
-  runDailyScheduler({ date, dryRun, count, useLLM: !noLLM })
+  runDailyScheduler({ date, dryRun, count, useLLM: !noLLM, model })
     .catch(err => {
       console.error('❌ Scheduler error:', err.message);
       process.exit(1);

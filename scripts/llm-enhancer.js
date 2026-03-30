@@ -157,14 +157,20 @@ if (require.main === module) {
     run();
 
   } else if (args[0] && !args[0].startsWith('--')) {
-    // Single prompt
+    // Single prompt mode: node llm-enhancer.js "your prompt here"
     const apiKey = process.env.MINIMAX_API_KEY;
     if (!apiKey) {
       console.error('Error: MINIMAX_API_KEY environment variable is required');
       process.exit(1);
     }
 
-    enhancePrompt({ seedPrompt: args.join(' '), apiKey })
+    const model = (() => {
+      const m = args.find(a => a.startsWith('--model='));
+      return m ? m.split('=')[1] : 'MiniMax-M2.7';
+    })();
+    const promptText = args.filter(a => !a.startsWith('--')).join(' ');
+
+    enhancePrompt({ seedPrompt: promptText, apiKey, model })
       .then(result => {
         console.log('\n✨ Enhanced Prompt:\n');
         console.log(result.enhanced);
@@ -176,7 +182,7 @@ if (require.main === module) {
       });
 
   } else {
-    // Pipe mode
+    // Interactive/repl mode: reads JSON from stdin
     let input = '';
     process.stdin.on('data', d => input += d);
     process.stdin.on('end', () => {
@@ -187,10 +193,12 @@ if (require.main === module) {
           console.error('Error: MINIMAX_API_KEY is required');
           process.exit(1);
         }
+        const model = data.model || 'MiniMax-M2.7';
         enhancePrompt({
           seedPrompt: data.content || data.prompt,
           theme: data.theme,
           apiKey,
+          model,
         }).then(result => {
           console.log(JSON.stringify(result, null, 2));
         }).catch(err => {
@@ -198,7 +206,7 @@ if (require.main === module) {
           process.exit(1);
         });
       } catch (e) {
-        console.error('Invalid JSON input:', e.message);
+        console.error('Usage: echo \'{"content":"prompt","theme":"theme"}\' | node llm-enhancer.js');
         process.exit(1);
       }
     });
