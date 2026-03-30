@@ -9,3 +9,4 @@ minimax-image-gen/scripts/node_modules/
 .env
 .env.*
 !</.env.example
+references/
