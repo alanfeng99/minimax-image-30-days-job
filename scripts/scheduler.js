@@ -27,8 +27,7 @@ const CONFIG = {
   safety_veto: true,
   output_daily: true,
   output_append_approved: true,
-  llm_batch_size: 5,        // 每批 LLM 呼叫數
-  llm_delay_ms: 200,        // LLM 呼叫間隔（防速率限制）
+  llm_concurrency: 10,       // 並行 LLM 呼叫數
   llm_temperature: 0.8,
 };
 
@@ -62,53 +61,12 @@ function getApiKey() {
 const TEXT_API = 'https://api.minimax.io/v1/text/chatcompletion_v2';
 const LLM_MODEL = 'MiniMax-M2.7';
 
-const LLM_SYSTEM_PROMPT = `You are a Senior Prompt Engineer specializing in AI image generation prompts for MiniMax Image-01.
-Your task is to enhance seed prompts into HIGH-QUALITY, production-ready image generation prompts.
-
-## Golden Rules for Prompt Crafting
-
-1. **Be Specific & Vivid**: Replace vague descriptions with concrete, sensory-rich details
-   - Instead of "a person" → "a weathered 65-year-old craftsman in a denim apron, calloused hands carefully carving wood"
-   - Instead of "a city" → "narrow Venetian backstreets at dusk, laundry hanging between pastel buildings, a lone motorino buzzes past"
-
-2. **Layer Technical Photography/Cinematography Terms**:
-   - Lighting: "golden hour side-lighting", "diffused overcast light", "high-key studio lighting", "cinematic rim light"
-   - Composition: "rule of thirds", "foreground leading lines", "shallow depth of field with creamy bokeh", "Dutch angle"
-   - Lens: "shot on 85mm f/1.4", "wide-angle 24mm", "medium format Hasselblad aesthetic"
-   - Mood: "moody and introspective", "vibrant and energetic", "quietly melancholic"
-
-3. **Preserve & Elevate the Core Concept**:
-   - Keep the seed's intended subject, setting, and emotion
-   - Add ONE unexpected creative twist if it fits naturally
-   - Never change the fundamental story or subject
-
-4. **Prompt Length & Structure**:
-   - Aim for 2-4 well-crafted sentences or 80-250 words
-   - Use commas to separate descriptive clauses
-   - End with the most important visual anchor
-
-5. **Style Consistency**:
-   - If seed mentions "photorealistic" → maintain photographic quality
-   - If seed mentions "anime" → maintain cel-shaded/illustrated quality
-   - If seed mentions "cinematic" → include film terminology
-
-6. **Avoid Over-Generated Clichés**:
-   - Skip: "stunningly beautiful", "breathtakingly", "incredibly detailed"
-   - Use specific sensory details instead
-
-## Output Format
-Return ONLY the enhanced prompt in English. No explanations, no quotes, no prefixes. Just the raw prompt text ready for image generation.`;
+const LLM_SYSTEM_PROMPT = `You are a Senior Prompt Engineer. Enhance seed prompts into vivid, specific, detailed image prompts. Add lighting/composition/style terms. Preserve core subject. Avoid clichés. Output ONLY the enhanced prompt.`;
 
 const axios = require('axios');
 
 async function enhanceWithLLM({ seedPrompt, theme, apiKey }) {
-  const userMessage = `## Seed Prompt to Enhance
-Theme: ${theme || 'General'}
-
-Seed: "${seedPrompt}"
-
-Please enhance this into a high-quality MiniMax Image-01 prompt following all guidelines above.
-Return ONLY the enhanced prompt text — nothing else.`;
+  const userMessage = `Theme: ${theme || 'General'}\nSeed: "${seedPrompt}"\n\nEnhance into a vivid, detailed image prompt. Return ONLY the result.`;
 
   const response = await axios.post(
     TEXT_API,
@@ -119,14 +77,14 @@ Return ONLY the enhanced prompt text — nothing else.`;
         { role: 'user', name: 'User', content: userMessage },
       ],
       temperature: CONFIG.llm_temperature,
-      max_tokens: 400,
+      max_tokens: 600,
     },
     {
       headers: {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`,
       },
-      timeout: 30000,
+      timeout: 60000,
     }
   );
 
@@ -146,9 +104,7 @@ Return ONLY the enhanced prompt text — nothing else.`;
   return choices[0].message.content.trim();
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+// sleep removed — using parallel LLM calls
 
 // ============ Prompt Generation (Stage 1) ============
 
@@ -265,59 +221,59 @@ async function runDailyScheduler({ date, dryRun = false, count = CONFIG.daily_pr
   const seeds = generateDailySeeds(themes, count);
   console.log(`✍️  Stage 1: Generated ${seeds.length} seed prompts`);
 
-  // Stage 2: LLM Enhancement
-  let enhancedPrompts = seeds;
+  // ============ Concurrency helper ============
+  async function asyncPool(concurrency, items, fn) {
+    const results = [];
+    let active = 0;
+    let idx = 0;
+    return new Promise(resolve => {
+      function start() {
+        while (active < concurrency && idx < items.length) {
+          const i = idx++;
+          const item = items[i];
+          active++;
+          fn(item, i).then(result => {
+            results[i] = result;
+            active--;
+            start();
+          }).catch(err => {
+            results[i] = { error: err.message };
+            active--;
+            start();
+          });
+        }
+        if (active === 0) resolve(results);
+      }
+      start();
+    });
+  }
 
+  // Stage 2: LLM Enhancement (parallel)
   if (useLLM && hasApiKey) {
-    console.log(`\n🤖 Stage 2: LLM Enhancement (MiniMax-M2.7)...`);
-    enhancedPrompts = [];
+    console.log(`\n🤖 Stage 2: LLM Enhancement (MiniMax-M2.7, ${CONFIG.llm_concurrency} parallel)...`);
 
-    for (let i = 0; i < seeds.length; i++) {
-      const seed = seeds[i];
+    const results = await asyncPool(CONFIG.llm_concurrency, seeds, async (seed, i) => {
       const progress = `[${i + 1}/${seeds.length}]`;
-
       try {
         const enhanced = await enhanceWithLLM({
           seedPrompt: seed.seed_content,
           theme: seed.theme,
           apiKey,
         });
-
-        // Check if LLM returned something useful
         if (enhanced && enhanced.length > 10) {
-          enhancedPrompts.push({
-            ...seed,
-            content: enhanced,
-            llm_enhanced: true,
-            seed_content: seed.seed_content,
-          });
-          process.stdout.write(`  ${progress} ✅ "${enhanced.substring(0, 50)}..."\n`);
+          process.stdout.write(`  ${progress} ✅\n`);
+          return { ...seed, content: enhanced, llm_enhanced: true, seed_content: seed.seed_content };
         } else {
-          // LLM returned garbage, fall back to seed
-          enhancedPrompts.push({
-            ...seed,
-            content: seed.seed_content,
-            llm_enhanced: false,
-          });
-          process.stdout.write(`  ${progress} ⚠️  LLM empty, used seed\n`);
+          process.stdout.write(`  ${progress} ⚠️  empty\n`);
+          return { ...seed, content: seed.seed_content, llm_enhanced: false };
         }
       } catch (err) {
-        // On LLM error, fall back to seed
-        enhancedPrompts.push({
-          ...seed,
-          content: seed.seed_content,
-          llm_enhanced: false,
-          llm_error: err.message,
-        });
-        process.stdout.write(`  ${progress} ⚠️  LLM failed: ${err.message.substring(0, 50)}, used seed\n`);
+        process.stdout.write(`  ${progress} ⚠️  ${err.message.substring(0, 40)}\n`);
+        return { ...seed, content: seed.seed_content, llm_enhanced: false, llm_error: err.message };
       }
+    });
 
-      // Rate limit delay (but not on last item)
-      if (i < seeds.length - 1 && CONFIG.llm_delay_ms > 0) {
-        await sleep(CONFIG.llm_delay_ms);
-      }
-    }
-
+    enhancedPrompts = results;
     const llmSuccessCount = enhancedPrompts.filter(p => p.llm_enhanced).length;
     console.log(`\n   🤖 LLM Enhanced: ${llmSuccessCount}/${seeds.length} (${((llmSuccessCount / seeds.length) * 100).toFixed(0)}%)`);
   } else {

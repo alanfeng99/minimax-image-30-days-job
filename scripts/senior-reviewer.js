@@ -49,7 +49,7 @@ const TECHNICAL_KEYWORDS = {
 };
 
 function evaluatePrompt(promptObj) {
-  const { content, theme, aspect_ratio } = promptObj;
+  const { content, theme, aspect_ratio, llm_enhanced, seed_content, theme_id, tags } = promptObj;
   const text = content || promptObj.prompt || '';
 
   // ========== Safety Check (Veto) ==========
@@ -170,6 +170,10 @@ function evaluatePrompt(promptObj) {
     content: text,
     theme,
     aspect_ratio,
+    llm_enhanced,
+    seed_content,
+    theme_id,
+    tags,
     review: {
       final_score: Math.round(finalScore * 100) / 100,
       passed,
