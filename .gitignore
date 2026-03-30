@@ -1,0 +1,11 @@
+# Dependencies (install via npm)
+minimax-image-gen/scripts/node_modules/
+
+# OS
+.DS_Store
+*.log
+
+# Local env
+.env
+.env.*
+!</.env.example
