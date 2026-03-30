@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>ai.pro16.minimax-prompt-scheduler</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/node</string>
+        <string>/Users/alanfeng/.openclaw/workspace/skills/minimax-image-gen/scripts/scheduler.js</string>
+    </array>
+    <key>WorkingDirectory</key>
+    <string>/Users/alanfeng/.openclaw/workspace/skills/minimax-image-gen/scripts</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+        <!-- 請替换为你在 platform.minimax.io/user-center/basic-information/interface-key 的 Token Plan Key -->
+        <key>MINIMAX_API_KEY</key>
+        <string>YOUR_TOKEN_PLAN_API_KEY_HERE</string>
+        <key>PATH</key>
+        <string>/usr/local/bin:/opt/homebrew/bin:/usr/bin:/bin</string>
+    </dict>
+    <key>StartCalendarInterval</key>
+    <array>
+        <dict>
+            <key>Hour</key>
+            <integer>6</integer>
+            <key>Minute</key>
+            <integer>0</integer>
+        </dict>
+    </array>
+    <key>RunAtLoad</key>
+    <false/>
+    <key>StandardOutPath</key>
+    <string>/tmp/minimax-scheduler.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/minimax-scheduler-error.log</string>
+</dict>
+</plist>

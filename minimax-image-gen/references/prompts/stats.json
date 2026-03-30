@@ -1,0 +1,12 @@
+{
+  "last_updated": "2026-03-30T12:33:38.605Z",
+  "total_approved": 24,
+  "total_rejected": 26,
+  "last_run": {
+    "date": "2026-03-30",
+    "approved": 24,
+    "rejected": 26,
+    "pass_rate": 48,
+    "avg_score": 7.38
+  }
+}

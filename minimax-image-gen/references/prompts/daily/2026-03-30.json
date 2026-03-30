@@ -1,0 +1,1495 @@
+{
+  "date": "2026-03-30",
+  "generated_at": "2026-03-30T12:33:38.605Z",
+  "config": {
+    "count": 50,
+    "threshold": 7
+  },
+  "summary": {
+    "total": 50,
+    "approved": 24,
+    "rejected": 26,
+    "pass_rate": 48,
+    "avg_score": 7.38
+  },
+  "approved": [
+    {
+      "content": "Lioness hunting in African savanna at golden hour, dramatic silhouette, dust particles in air, anamorphic lens flare, National Geographic style, 35mm cinema lens, gritty realism",
+      "theme": "Wildlife & Nature",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 7.15,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 7,
+          "technical": 8,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.596Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Space station orbiting a ringed planet at sunset, Earth in background, astronaut on spacewalk, cinematic lighting, blue hour, highly detailed, digital clean, mysterious vibe",
+      "theme": "Space & Cosmic",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "futuristic aesthetic scene, Gothic cathedral interior at night, single beam of red light from stained glass, fog on stone floor, ominous mood, dramatic, low key cinematic, symmetrical composition",
+      "theme": "Dark & Moody Horror",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 7.55,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 7,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Brutalist concrete staircase spiraling upward, dramatic volumetric light from above, geometric shadows, soft diffused daylight, architectural photography, vintage Kodak portra, gritty realism",
+      "theme": "Architecture & Interiors",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.15,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 3,
+          "specificity": 7,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Close-up of a futuristic robot face with expressive eyes, chrome reflections, blue LED accents, studio lighting, soft diffused daylight, foreground leading lines, vintage Kodak portra",
+      "theme": "Cyberpunk & Sci-Fi",
+      "aspect_ratio": "2:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "tense mood scene, Ancient forest with giant mushrooms glowing in the dark, fairy tale atmosphere, volumetric light rays, soft diffused daylight, deep focus",
+      "theme": "Epic Fantasy Landscapes",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 7.85,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 9,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "nostalgic feeling scene, Vintage typewriter on antique wooden desk, scattered letters, quill pen, sepia tones, nostalgic still life photography, cool moonlight, dutch angle",
+      "theme": "Steampunk & Vintage Tech",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.35,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 7,
+          "technical": 9,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Luxury watch on dark wood surface, dramatic side lighting, reflections on metal and glass, anamorphic lens flare, high-end product shot, 35mm cinema lens, peaceful atmosphere",
+      "theme": "Product Photography",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.598Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Abstract 3D rendered sculpture, iridescent material, floating in digital void, volumetric lighting, octane render aesthetic, soft diffused daylight, rule of thirds, vintage Kodak portra",
+      "theme": "Tech & Digital Art",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Vintage typewriter on antique wooden desk, scattered letters, quill pen, sepia tones, warm tungsten, nostalgic still life photography, infrared effect, tense mood",
+      "theme": "Steampunk & Vintage Tech",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 7.35,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 7,
+          "technical": 9,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "editorial elegance scene, Classic 1969 Mustang in desert setting, golden hour, long shadow, dust particles in air, automotive photography, cinematic, dramatic rim lighting, extreme close-up",
+      "theme": "Automotive & Machinery",
+      "aspect_ratio": "3:2",
+      "review": {
+        "final_score": 8.05,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 9,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Close-up of a futuristic robot face with expressive eyes, chrome reflections, blue LED accents, studio lighting, cool moonlight, telephoto compression, shot on Canon 5D Mark IV",
+      "theme": "Cyberpunk & Sci-Fi",
+      "aspect_ratio": "2:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "mysterious vibe scene, Futuristic data visualization dashboard, holographic graphs, blue-purple color scheme, dark background, tech aesthetic, clean typography, anamorphic lens flare, centered",
+      "theme": "Infographic & Data Visualization",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Surreal landscape where a giant clock melts into a sandy desert, Dali-inspired, golden hour lighting, vast empty sky, dramatic rim lighting, hyperdetailed, cinematic color grade, peaceful atmosphere",
+      "theme": "Abstract & Surreal",
+      "aspect_ratio": "2:3",
+      "review": {
+        "final_score": 7.85,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 9,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Bioluminescent deep sea creatures in pitch black ocean, ethereal blue glow, documentary style, extreme depth, soft diffused daylight, mysterious atmosphere, vintage Kodak portra, nostalgic feeling",
+      "theme": "Underwater World",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.600Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Slice-of-life manga panel, high school rooftop scene, golden hour, soft shadows, cel-shaded rendering, Studio Ghibli meets anime, dramatic rim lighting, dutch angle, cinematic color grade",
+      "theme": "Comic & Graphic Novel",
+      "aspect_ratio": "2:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, soft diffused daylight, centered, vintage Kodak portra",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Multi-angle product shot of wireless charger, foam-cuted background, studio lighting setup visible, Amazon listing style, soft diffused daylight, dutch angle, vintage Kodak portra",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, golden hour, wide angle, film grain",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "mysterious vibe scene, Editorial fashion shoot, model in avant-garde couture dress, industrial warehouse location, dramatic rim lighting, high fashion magazine cover, soft diffused daylight, tilt-shift effect",
+      "theme": "Fashion & Editorial",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 7.75,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 9,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "futuristic aesthetic scene, T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, volumetric fog light, symmetrical composition",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "editorial elegance scene, T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, blue hour, extreme close-up",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Golden retriever portrait in tall grass, golden hour backlight, soft bokeh, joyful expression, pet photography, natural setting, high key studio, telephoto compression, desaturated",
+      "theme": "Pet & Companion Animals",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 7.65,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 9,
+          "specificity": 5.5,
+          "technical": 8,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    },
+    {
+      "content": "Apollo 11 moon landing moment, astronaut on lunar surface, Earth visible in background, photorealistic, cinematic lighting, historical recreation, blue hour, establishing wide shot, digital clean",
+      "theme": "Historical Reenactment",
+      "aspect_ratio": "2:3",
+      "review": {
+        "final_score": 7.25,
+        "passed": true,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": null,
+        "reviewed_at": "2026-03-30T12:33:38.602Z",
+        "reviewer_version": "senior-prompt-engineer-v1"
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "content": "Surfer riding massive barrel wave at sunset, spray and mist, dynamic composition, extreme sports photography, cool moonlight, golden light, shot on Canon 5D Mark IV, peaceful atmosphere",
+      "theme": "Sports & Action",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.588Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Surfer riding massive barrel wave at sunset, spray and mist, dynamic composition, extreme sports photography, cool moonlight, golden light, shot on Canon 5D Mark IV, peaceful atmosphere"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, moody overcast, wide angle, high contrast mono",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.593Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, moody overcast, wide angle, high contrast mono"
+      }
+    },
+    {
+      "content": "Space station orbiting a ringed planet at sunset, Earth in background, astronaut on spacewalk, cinematic lighting, highly detailed, cool moonlight, extreme close-up, shot on Canon 5D Mark IV",
+      "theme": "Space & Cosmic",
+      "aspect_ratio": "21:9",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Space station orbiting a ringed planet at sunset, Earth in background, astronaut on spacewalk, cinematic lighting, highly detailed, cool moonlight, extreme close-up, shot on Canon 5D Mark IV"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, low key cinematic, centered, cross-processed",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, low key cinematic, centered, cross-processed"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, moody overcast, clean e-commerce standard, high contrast mono, peaceful atmosphere",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "3:2",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.597Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, moody overcast, clean e-commerce standard, high contrast mono, peaceful atmosphere"
+      }
+    },
+    {
+      "content": "1970s living room in orange and brown tones, shag carpet, wood paneling, vintage TV set, nostalgic warm color grading, cool moonlight, tilt-shift effect, shot on Canon 5D Mark IV",
+      "theme": "Vintage & Retro Aesthetics",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.85,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 3,
+          "specificity": 5.5,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(6.9): clarity(3), specificity(5.5), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.598Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "1970s living room in orange and brown tones, shag carpet, wood paneling, vintage TV set, nostalgic warm color grading, cool moonlight, tilt-shift effect, shot on Canon 5D Mark IV"
+      }
+    },
+    {
+      "content": "Rain-soaked neon-lit alley in Tokyo at midnight, cinematic lighting, shallow depth of field, film grain, cool moonlight, 35mm, shot on Canon 5D Mark IV, nostalgic feeling",
+      "theme": "Cinematic Urban Streets",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.598Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Rain-soaked neon-lit alley in Tokyo at midnight, cinematic lighting, shallow depth of field, film grain, cool moonlight, 35mm, shot on Canon 5D Mark IV, nostalgic feeling"
+      }
+    },
+    {
+      "content": "tense mood scene, Multi-angle product shot of wireless charger, foam-cuted background, studio lighting setup visible, Amazon listing style, high key studio, telephoto compression",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.598Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "tense mood scene, Multi-angle product shot of wireless charger, foam-cuted background, studio lighting setup visible, Amazon listing style, high key studio, telephoto compression"
+      }
+    },
+    {
+      "content": "Single geometric object on pristine white surface, perfectly centered, pure white background, studio lighting, cool moonlight, minimal shadows, shot on Canon 5D Mark IV, gritty realism",
+      "theme": "Minimalism & White Space",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.598Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Single geometric object on pristine white surface, perfectly centered, pure white background, studio lighting, cool moonlight, minimal shadows, shot on Canon 5D Mark IV, gritty realism"
+      }
+    },
+    {
+      "content": "Instagram lifestyle flat lay, coffee cup, open book, dried flowers, watch, minimal objects, soft pastel background, cool moonlight, top-down composition, shot on Canon 5D Mark IV, tense mood",
+      "theme": "Social Media Content",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.598Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Instagram lifestyle flat lay, coffee cup, open book, dried flowers, watch, minimal objects, soft pastel background, cool moonlight, top-down composition, shot on Canon 5D Mark IV, tense mood"
+      }
+    },
+    {
+      "content": "Person meditating in a sunlit forest clearing, morning mist, volumetric god rays, peaceful serene atmosphere, moody overcast, wellness photography, high contrast mono, gritty realism",
+      "theme": "Healing & Wellness",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 6.75,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 9,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(6.8): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.598Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Person meditating in a sunlit forest clearing, morning mist, volumetric god rays, peaceful serene atmosphere, moody overcast, wellness photography, high contrast mono, gritty realism"
+      }
+    },
+    {
+      "content": "Candid documentary shot of children playing in autumn leaves, natural light, unposed genuine moment, warm tungsten, warm color grading, infrared effect, raw documentary feel",
+      "theme": "Children & Family",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 6.55,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 8,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(6.6): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Candid documentary shot of children playing in autumn leaves, natural light, unposed genuine moment, warm tungsten, warm color grading, infrared effect, raw documentary feel"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, low key cinematic, wide angle, cross-processed",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, low key cinematic, wide angle, cross-processed"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, dramatic rim lighting, clean e-commerce standard, cinematic color grade, mysterious vibe",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "3:2",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, dramatic rim lighting, clean e-commerce standard, cinematic color grade, mysterious vibe"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, cool moonlight, clean e-commerce standard, shot on Canon 5D Mark IV, peaceful atmosphere",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "3:2",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, cool moonlight, clean e-commerce standard, shot on Canon 5D Mark IV, peaceful atmosphere"
+      }
+    },
+    {
+      "content": "1940s noir detective scene, venetian blinds casting shadow stripes, cigarette smoke, monochrome film grain, blue hour, dramatic, digital clean, tense mood",
+      "theme": "Vintage & Retro Aesthetics",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 6.85,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 5.5,
+          "technical": 8,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(6.9): clarity(5), specificity(5.5), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "1940s noir detective scene, venetian blinds casting shadow stripes, cigarette smoke, monochrome film grain, blue hour, dramatic, digital clean, tense mood"
+      }
+    },
+    {
+      "content": "Epic fantasy book cover illustration, knight facing a dragon, dramatic sky, vibrant colors, moody overcast, detailed armor textures, high contrast mono, raw documentary feel",
+      "theme": "Anime & Illustration Style",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.75,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 9,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(6.8): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Epic fantasy book cover illustration, knight facing a dragon, dramatic sky, vibrant colors, moody overcast, detailed armor textures, high contrast mono, raw documentary feel"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, low key cinematic, clean e-commerce standard, cross-processed, editorial elegance",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "3:2",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, low key cinematic, clean e-commerce standard, cross-processed, editorial elegance"
+      }
+    },
+    {
+      "content": "Rock concert at night, lead singer under spotlight, crowd in silhouette, stage lights creating lens flare, high ISO grain, energy, high key studio, telephoto compression, desaturated",
+      "theme": "Music & Concert",
+      "aspect_ratio": "16:9",
+      "review": {
+        "final_score": 5.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 5,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(6.0): clarity(5), specificity(4), technical(5), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.599Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Rock concert at night, lead singer under spotlight, crowd in silhouette, stage lights creating lens flare, high ISO grain, energy, high key studio, telephoto compression, desaturated"
+      }
+    },
+    {
+      "content": "editorial elegance scene, T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, high key studio, extreme close-up",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "editorial elegance scene, T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, high key studio, extreme close-up"
+      }
+    },
+    {
+      "content": "nostalgic feeling scene, Ramen bowl with perfectly layered toppings, steam rising, overhead shot on dark ceramic surface, moody food photography, soft diffused daylight, foreground leading lines",
+      "theme": "Food Photography",
+      "aspect_ratio": "4:3",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "nostalgic feeling scene, Ramen bowl with perfectly layered toppings, steam rising, overhead shot on dark ceramic surface, moody food photography, soft diffused daylight, foreground leading lines"
+      }
+    },
+    {
+      "content": "Abstract floating geometric shapes in a void, iridescent materials, soft studio lighting, minimal composition, art installation aesthetic, volumetric fog light, deep focus, medium format Hasselblad",
+      "theme": "Abstract & Surreal",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "Abstract floating geometric shapes in a void, iridescent materials, soft studio lighting, minimal composition, art installation aesthetic, volumetric fog light, deep focus, medium format Hasselblad"
+      }
+    },
+    {
+      "content": "tense mood scene, Close-up portrait of a woman in her 30s, soft Rembrandt lighting, blurred bokeh background, natural skin texture, photorealistic, cool moonlight, telephoto compression",
+      "theme": "Portrait — Realistic Human",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "tense mood scene, Close-up portrait of a woman in her 30s, soft Rembrandt lighting, blurred bokeh background, natural skin texture, photorealistic, cool moonlight, telephoto compression"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, anamorphic lens flare, centered, 35mm cinema lens",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "1:1",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.601Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, clean e-commerce standard, anamorphic lens flare, centered, 35mm cinema lens"
+      }
+    },
+    {
+      "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, moody overcast, clean e-commerce standard, high contrast mono, editorial elegance",
+      "theme": "Merch & Drop Ship Products",
+      "aspect_ratio": "3:2",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.602Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "T-shirt design mockup on invisible mannequin, solid color background, retail photography lighting, moody overcast, clean e-commerce standard, high contrast mono, editorial elegance"
+      }
+    },
+    {
+      "content": "gritty realism scene, Cherry blossom festival in Kyoto, temple grounds covered in pink petals, traditional lanterns, spring atmosphere, travel photography, dramatic rim lighting, establishing wide shot",
+      "theme": "Seasonal & Holiday",
+      "aspect_ratio": "2:3",
+      "review": {
+        "final_score": 6.95,
+        "passed": false,
+        "safety_veto": false,
+        "dimensions": {
+          "clarity": 5,
+          "specificity": 4,
+          "technical": 10,
+          "safety": 10,
+          "creativity": 5,
+          "fluency": 9
+        },
+        "weights_applied": {
+          "clarity": 0.2,
+          "specificity": 0.2,
+          "technical": 0.2,
+          "safety": 0.15,
+          "creativity": 0.15,
+          "fluency": 0.1
+        },
+        "rejection_reason": "SCORE_TOO_LOW(7.0): clarity(5), specificity(4), creativity(5)",
+        "reviewed_at": "2026-03-30T12:33:38.602Z",
+        "reviewer_version": "senior-prompt-engineer-v1",
+        "content": "gritty realism scene, Cherry blossom festival in Kyoto, temple grounds covered in pink petals, traditional lanterns, spring atmosphere, travel photography, dramatic rim lighting, establishing wide shot"
+      }
+    }
+  ]
+}
