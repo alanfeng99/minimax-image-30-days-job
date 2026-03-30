@@ -1,15 +1,26 @@
 # MiniMax Image 30 Days Job
 
-> An OpenClaw agent skill that generates 50 diverse AI image prompts daily from 30 curated themes, reviewed by a built-in Senior Prompt Engineer before approval.
+> An OpenClaw agent skill that generates 50 diverse AI image prompts daily from 30 curated themes, with LLM-enhanced quality and built-in Senior Prompt Engineer review.
 
 ---
 
 ## What It Does
 
-1. **30 curated themes** — from cinematic street photography to cyberpunk, fantasy landscapes, product photography, and more
-2. **Daily scheduler** — generates 50 random prompts per day (customizable count)
-3. **Senior Prompt Engineer Review** — every prompt is scored across 6 dimensions (Clarity, Specificity, Technical, Safety, Creativity, Fluency) and must score ≥ 7.0 to pass
-4. **Approved prompt library** — cumulative `approved.json` grows daily with reviewed prompts ready for MiniMax Image-01 generation
+```
+Stage 1: Program generates seed prompts from 30 themes (lighting/composition/style variants)
+    ↓
+Stage 2: LLM Enhancement (MiniMax-M2.7, Senior Prompt Engineer prompt)
+    ↓
+Stage 3: Rule-based Senior Review (Clarity, Specificity, Technical, Safety, Creativity, Fluency)
+    ↓
+Stage 4: approved.json (cumulative, deduplicated)
+```
+
+- **30 curated themes** — cinematic streets, fantasy landscapes, cyberpunk, product photography, and more
+- **Daily scheduler** — 50 random prompts/day, customizable count
+- **LLM Enhancement** — uses MiniMax-M2.7 to elevate seed prompts with creative and semantic improvements
+- **Senior Review** — rule-based six-dimension scoring, safety veto, pass threshold ≥ 7.0
+- **Approved library** — cumulative `approved.json` grows daily
 
 ---
 
@@ -28,12 +39,23 @@ export MINIMAX_API_KEY="your_Token_Plan_Key"
 
 # 4. Run the scheduler
 node scheduler.js
-
-# Or run the theme generator first
-node theme-generator.js
 ```
 
 Get your **Token Plan API Key** at: [platform.minimax.io/user-center/basic-information/interface-key](https://platform.minimax.io/user-center/basic-information/interface-key)
+
+---
+
+## Usage Modes
+
+```bash
+node scheduler.js              # Full flow: LLM + Review (needs API key)
+node scheduler.js --no-llm     # Rule-based only (no API key needed)
+node scheduler.js --dry-run    # Test mode, no files written
+node scheduler.js --count 30   # Custom prompt count
+
+# LLM standalone tool
+node llm-enhancer.js "your seed prompt here"
+```
 
 ---
 
@@ -46,18 +68,34 @@ Get your **Token Plan API Key** at: [platform.minimax.io/user-center/basic-infor
 ├── prompt-scheduler/SKILL.md        ← Daily scheduler + review guide
 ├── scripts/
 │   ├── api.js                     ← MiniMax Image-01 API wrapper
-│   ├── theme-generator.js          ← Generates 30 themes
-│   ├── senior-reviewer.js          ← Senior Prompt Engineer reviewer
-│   ├── scheduler.js               ← Daily prompt scheduler
-│   └── com.ai.pro16.*.plist       ← macOS launchd schedule
+│   ├── llm-enhancer.js            ← LLM prompt enhancer (MiniMax-M2.7)
+│   ├── theme-generator.js         ← Generates 30 themes
+│   ├── senior-reviewer.js         ← Rule-based Senior Review
+│   ├── scheduler.js               ← Daily orchestrator
+│   └── com.ai.pro16.*.plist      ← macOS launchd schedule
 └── references/
-    ├── themes.json                 ← 30 themes (auto-generated)
-    ├── screenshots/                ← Setup screenshots
+    ├── themes.json                 ← 30 themes
+    ├── screenshots/               ← Setup screenshots
     └── prompts/
         ├── approved.json           ← Cumulative approved prompts
-        ├── rejected.json           ← Rejected prompts with reasons
-        └── daily/                 ← Daily run reports
+        ├── rejected.json           ← Rejected with reasons
+        └── daily/                  ← Daily run reports
 ```
+
+---
+
+## Senior Prompt Engineer Review Dimensions
+
+| Dimension | Weight | Description |
+|-----------|--------|-------------|
+| Clarity | 20% | Clear and unambiguous? |
+| Specificity | 20% | Specific subjects/settings/details? |
+| Technical | 20% | Lighting/composition/style present? |
+| Safety | 15% | **Veto** — sensitive content = instant rejection |
+| Creativity | 15% | Novel or unexpected combinations? |
+| Fluency | 10% | English grammar and fluency |
+
+**Pass threshold**: Average score ≥ 7.0, Safety ≠ 0
 
 ---
 
@@ -82,34 +120,16 @@ crontab -e
 
 ---
 
-## Senior Prompt Engineer Review Dimensions
+## MiniMax APIs Used
 
-| Dimension | Weight | Description |
-|-----------|--------|-------------|
-| Clarity | 20% | Is the prompt clear and unambiguous? |
-| Specificity | 20% | Are subjects, settings, and details specific? |
-| Technical | 20% | Lighting/composition/style descriptors present? |
-| Safety | 15% | **Veto** — sensitive content = instant rejection |
-| Creativity | 15% | Novel or unexpected combinations? |
-| Fluency | 10% | English grammar and fluency |
-
-**Pass threshold**: Average score ≥ 7.0, Safety ≠ 0
-
----
-
-## MiniMax Image-01 API
-
-- **Endpoint**: `POST https://api.minimax.io/v1/image_generation`
-- **Auth**: `Bearer <Token Plan API Key>`
-- **Price**: ¥0.025 / image (≈ $0.0034 USD)
-- **Models**: `image-01`
-- **Max prompt**: 1500 characters
-- **Max per request**: 9 images
-
-See `scripts/api.js` for the Node.js wrapper.
+| API | Endpoint | Purpose |
+|-----|----------|---------|
+| Text | `POST https://api.minimax.io/v1/text/chatcompletion_v2` | LLM prompt enhancement |
+| Image | `POST https://api.minimax.io/v1/image_generation` | Actual image generation |
+| Auth | Bearer Token (same key for both) | Token Plan Key |
 
 ---
 
 ## License
 
-MIT — free to use, modify, and distribute.
+MIT

@@ -5,10 +5,12 @@
 | 項目 | 內容 |
 |------|------|
 | **API Base URL** | `https://api.minimax.io` |
-| **端點** | `POST /v1/image_generation` |
-| **模型** | `image-01` |
-| **認證** | Bearer Token (HTTP Bearer Auth) |
-| **價格** | ¥0.025/張 (≈ $0.0034 USD) |
+| **文字生成** | `POST /v1/text/chatcompletion_v2` |
+| **圖片生成** | `POST /v1/image_generation` |
+| **圖片模型** | `image-01` |
+| **文字模型** | `MiniMax-M2.7` |
+| **認證** | Bearer Token（同一組 API Key） |
+| **圖片價格** | ¥0.025/張 (≈ $0.0034 USD) |
 
 ---
 
@@ -21,7 +23,7 @@ Content-Type: application/json
 Authorization: Bearer <YOUR_API_KEY>
 ```
 
-### Request Body 參數
+### 圖片生成（Text-to-Image）
 
 | 參數 | 類型 | 必填 | 預設 | 說明 |
 |------|------|------|------|------|
@@ -30,88 +32,23 @@ Authorization: Bearer <YOUR_API_KEY>
 | `aspect_ratio` | string | ❌ | `1:1` | 比例：`1:1` `16:9` `4:3` `3:2` `2:3` `3:4` `9:16` `21:9` |
 | `width` | integer | ❌ | 1024 | 寬 px，範圍 [512, 2048]，需為 8 的倍數 |
 | `height` | integer | ❌ | 1024 | 高 px，範圍 [512, 2048]，需為 8 的倍數 |
-| `response_format` | string | ❌ | `url` | `url` (24小時有效) 或 `base64` |
+| `response_format` | string | ❌ | `url` | `url`（24小時有效）或 `base64` |
 | `seed` | integer | ❌ | 隨機 | 固定 seed 可重現相同圖片 |
 | `n` | integer | ❌ | 1 | 每次生成數量，範圍 [1, 9] |
 | `prompt_optimizer` | boolean | ❌ | `false` | 自動優化 prompt |
 
-### Aspect Ratio 對應尺寸
+### 文字生成（Chat Completion）
 
-| Ratio | 預設尺寸 |
-|-------|---------|
-| `1:1` | 1024×1024 |
-| `16:9` | 1280×720 |
-| `4:3` | 1152×864 |
-| `3:2` | 1248×832 |
-| `2:3` | 832×1248 |
-| `3:4` | 864×1152 |
-| `9:16` | 720×1280 |
-| `21:9` | 1344×576 |
+| 參數 | 類型 | 必填 | 說明 |
+|------|------|------|------|
+| `model` | string | ✅ | `MiniMax-M2.7` |
+| `messages` | array | ✅ | 訊息陣列，含 `role` 和 `content` |
+| `temperature` | float | ❌ | 創意度，預設 0.7 |
+| `max_tokens` | integer | ❌ | 最大回應長度 |
 
 ---
 
-## Node.js 呼叫範例
-
-```javascript
-const axios = require('axios');
-
-async function generateImage({ apiKey, prompt, aspectRatio = '1:1', n = 1, responseFormat = 'url' }) {
-  const response = await axios.post(
-    'https://api.minimax.io/v1/image_generation',
-    {
-      model: 'image-01',
-      prompt,
-      aspect_ratio: aspectRatio,
-      n,
-      response_format: responseFormat,
-      prompt_optimizer: false,
-    },
-    {
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${apiKey}`,
-      },
-    }
-  );
-
-  const { data, metadata, id } = response.data;
-  return {
-    id,
-    images: responseFormat === 'url' ? data.image_urls : data.image_base64,
-    successCount: metadata.success_count,
-    failedCount: metadata.failed_count,
-  };
-}
-
-// 使用
-const result = await generateImage({
-  apiKey: process.env.MINIMAX_API_KEY,
-  prompt: 'A man in a white t-shirt, full-body, standing front view, outdoors, with the Venice Beach sign in the background, Los Angeles. Fashion photography in 90s documentary style, film grain, photorealistic.',
-  aspectRatio: '16:9',
-  n: 3,
-});
-console.log(result.images);
-```
-
----
-
-## 錯誤碼
-
-| status_code | 意義 |
-|-------------|------|
-| `0` | 成功 |
-| `1002` | 速率限制，稍後重試 |
-| `1004` | API Key 錯誤 |
-| `1008` | 帳戶餘額不足 |
-| `1026` | Prompt 偵測到敏感內容 |
-| `2013` | 參數錯誤 |
-| `2049` | API Key 無效 |
-
----
-
-## 快速一鍵生圖 (使用專案內建腳本)
-
-在已安裝依賴的情況下：
+## 快速一鍵生圖
 
 ```bash
 cd ~/.openclaw/workspace/skills/minimax-image-gen/scripts
@@ -119,6 +56,25 @@ node api.js "your prompt here" --aspect 16:9 --n 3
 ```
 
 必要環境變數：`MINIMAX_API_KEY`
+
+---
+
+## 每日 Prompt 生成流程（LLM 增強版）
+
+```
+Stage 1: 程式生成 seed prompts  (themes.json → 隨機變化組合)
+    ↓
+Stage 2: LLM 增強  (MiniMax-M2.7，Senior Prompt Engineer system prompt)
+    ↓
+Stage 3: Senior Reviewer 把關  (規則型六維度評分，安全審查)
+    ↓
+Stage 4: approved.json
+```
+
+**三個模式：**
+- `node scheduler.js` — 完整流程（需 `MINIMAX_API_KEY`）
+- `node scheduler.js --no-llm` — 跳過 LLM，純規則生成
+- `node scheduler.js --dry-run` — 不寫入檔案，測試用
 
 ---
 
@@ -130,7 +86,7 @@ node api.js "your prompt here" --aspect 16:9 --n 3
 2. 切換到 **Token Plan Key** 分頁（如圖所示）
 3. 建立新的 API Key 並複製
 
-> 📍 **截圖指引**：按下 `Cmd+Shift+4`（或 `Cmd+Shift+3`）截圖，懶人包如下：
+> 📍 **截圖指引**：
 > ![Token Plan Key 位置截圖](references/screenshots/api-key-location.jpg)
 
 ### 2. 設定環境變數
@@ -139,9 +95,43 @@ node api.js "your prompt here" --aspect 16:9 --n 3
 export MINIMAX_API_KEY="你的Token Plan API Key"
 ```
 
-### 3. macOS 自動排程（可選）
+### 3. 安裝依賴
 
-參考 `prompt-scheduler/SKILL.md` 的 launchd 設定段落。
+```bash
+cd ~/.openclaw/workspace/skills/minimax-image-gen/scripts
+npm install
+```
+
+### 4. 跨平台自動排程（可選）
+
+#### macOS
+使用 launchd：
+
+```bash
+cp scripts/com.ai.pro16.minimax-prompt-scheduler.plist ~/Library/LaunchAgents/
+nano ~/Library/LaunchAgents/com.ai.pro16.minimax-prompt-scheduler.plist
+# 替換 YOUR_TOKEN_PLAN_API_KEY_HERE 為真實 API Key
+launchctl load ~/Library/LaunchAgents/com.ai.pro16.minimax-prompt-scheduler.plist
+```
+
+#### Windows
+使用「工作排程器」：
+1. 開啟「工作排程器」→ 「建立基本工作」
+2. 名稱：`MiniMax Daily Prompt Scheduler`
+3. 觸發程序：每日早上 6:00
+4. 動作：「啟動程式」
+   - 程式：`cmd.exe`
+   - 引數：`/c cd /d "%USERPROFILE%\.openclaw\workspace\skills\minimax-image-gen\scripts" && node scheduler.js`
+5. 條件：勾選「不論是否登入皆執行」，並設定 `MINIMAX_API_KEY` 環境變數
+
+#### Linux
+使用 crontab：
+
+```bash
+crontab -e
+# 加入：
+0 6 * * * cd ~/.openclaw/workspace/skills/minimax-image-gen/scripts && MINIMAX_API_KEY="your_key" /usr/bin/node scheduler.js >> /tmp/minimax-scheduler.log 2>&1
+```
 
 ---
 
@@ -152,6 +142,6 @@ export MINIMAX_API_KEY="你的Token Plan API Key"
 | Skill | 說明 |
 |-------|------|
 | `theme-generator` | 生成 30 個多樣化生圖主題 |
-| `prompt-scheduler` | 每日排程：從主題庫抽出 50 個隨機 prompt，並經 Senior Prompt Engineer 審查 |
+| `prompt-scheduler` | 每日排程：LLM 增強 + Senior Review |
 
 詳細用法見各 Skill 的 SKILL.md。
