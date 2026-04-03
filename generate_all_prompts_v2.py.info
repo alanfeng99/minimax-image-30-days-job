@@ -1,0 +1,32 @@
+# v2 修正說明
+
+## 問題
+舊版 `generate_all_prompts.py` 的 Days 5-29 使用 `DAY_TEMPLATES` + `build_template_prompts()` 生成，50 個 prompt 只改變光線/拍攝手法，主體 subject 完全相同。
+
+例如 Day 5 舊版：
+- 全部 50 張都是「同一頭獅子 + 不同光線」（golden hour、blue hour、rain、snow...）
+
+## 修正
+`generate_all_prompts_v2.py` 生成了真正多樣化的 50 個不同 subjects：
+
+| Day | 主題 | 變化內容 |
+|-----|------|---------|
+| 5 | 野生動物 | 50 種不同動物（獅子/大象/長頸鹿/熊貓/北極熊...） |
+| 6 | Cyberpunk 街頭 | 50 種不同場景（雨天/夜市/寺廟/高空酒吧...） |
+| 7 | 美食攝影 | 50 道不同菜式 |
+| 8 | 時尚編輯 | 50 種風格造型 |
+| 9 | 深空天文 | 50 種天體 |
+| 10 | 海洋水下 | 50 種生物 |
+| 11-29 | 多元主題 | 50 種不同 subjects |
+
+## 使用
+```bash
+python3 generate_all_prompts_v2.py
+```
+輸出：`29day_prompts.json`（1450 個 prompts）
+
+## daily_run.py
+自動化腳本，讀取 `29day_prompts.json` 當天 prompts 批次生成。
+```bash
+python3 daily_run.py
+```
