@@ -128,8 +128,19 @@ crontab -e
 | Image | `POST https://api.minimax.io/v1/image_generation` | Actual image generation |
 | Auth | Bearer Token (same key for both) | Token Plan Key |
 
+## Examples
+
+![day08_Fashion_Editorial_37](https://github.com/user-attachments/assets/562edd2f-7307-49d2-9a78-7aeef3828296)
+![day07_Food_Photography_01](https://github.com/user-attachments/assets/7b31ac9b-ec59-4e3f-8687-3638ad903894)
+![day05_Wildlife_Safari_10](https://github.com/user-attachments/assets/9131d267-ceb1-41aa-be78-e8f50ffb5f39)
+![day04_Cinematic_Portrait_21](https://github.com/user-attachments/assets/dd324ee0-a91c-441d-a48d-b99152cf692a)
+![day03_Brutalist_Architecture_12](https://github.com/user-attachments/assets/26a40c3e-30e6-4825-80a0-c6d9e3f29570)
+![day01_Anime_Character_01_test](https://github.com/user-attachments/assets/8c2181f5-d552-415d-a55b-c90c0767ee03)
+![day02_Classic_Sports_Car_26](https://github.com/user-attachments/assets/32409dbc-c70f-4e5e-b063-35d1d66dde5f)
+
 ---
 
 ## License
 
 MIT
+![day04_Cinematic_Portrait_21](https://github.com/user-attachments/assets/0d00000a-206f-4c08-84eb-ea58498b6a7a)
